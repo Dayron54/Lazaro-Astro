@@ -1,0 +1,63 @@
+:root {
+  --nav-bg: rgb(0, 84, 164); /* Azul oscuro */
+  --nav-text: #fff;
+  --nav-hover: #4f9dfc;
+  --wompi-bg: #00b4d8;
+  --wompi-text: #fff;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+.navbar {
+  background: var(--nav-bg);
+  padding: 20px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 6px 10px rgba(0, 84, 165, 0.637);
+}
+
+.nav-left,
+.nav-center,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-center a {
+  color: var(--nav-text);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-center a:hover {
+  color: var(--nav-hover);
+}
+
+.wompi-btn {
+  background: var(--wompi-bg);
+  color: var(--wompi-text);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.wompi-btn:hover {
+  opacity: 0.9;
+}
+
+.nav-right img {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.2s ease;
+}
+
+.nav-right img:hover {
+  transform: scale(1.1);
+}

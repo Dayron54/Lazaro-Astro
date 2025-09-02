@@ -1,0 +1,38 @@
+---
+const links = [
+  { href: '/', label: 'Inicio' },
+  { href: '/modulos', label: 'Módulos' },
+  { href: '/clientes', label: 'Clientes' },
+  { href: '/nosotros', label: 'Nosotros' },
+  { href: '/contacto', label: 'Contacto' },
+];
+---
+
+<nav class="navbar">
+  <!-- Logo -->
+  <div class="nav-left">
+    <a href="/">
+      <img src="/logo-lazaro.png" alt="Lázaro Software" style="height:40px;" />
+    </a>
+  </div>
+
+  <!-- Links -->
+  <div class="nav-center">
+    {links.map((l) => (
+      <a href={l.href}>{l.label}</a>
+    ))}
+  </div>
+
+  <!-- Botón y redes -->
+  <div class="nav-right">
+    <a class="wompi-btn" href="https://checkout.wompi.co/" target="_blank">
+      Paga con Wompi
+    </a>
+    <a href="https://www.facebook.com/p/Lazaro-Software-100063740972972/?locale=es_LA" target="_blank">
+      <img src="/public/logo-facebook.png" alt="Facebook" />
+    </a>
+    <a href="https://www.instagram.com/lazarosoftware_/?hl=es" target="_blank">
+      <img src="/logo-instagram.png" alt="Instagram" />
+    </a>
+  </div>
+</nav>
