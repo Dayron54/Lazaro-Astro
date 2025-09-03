@@ -1,0 +1,117 @@
+---
+const cards = [
+  {
+    icon: "sync",
+    text: "Mantén tu negocio actualizado con la DIAN y evita multas para tus clientes."
+  },
+  {
+    icon: "clock",
+    text: "Ahorra tiempo al simplificar tus labores contables."
+  },
+  {
+    icon: "warning",
+    text: "Evita errores al automatizar tus tareas contables."
+  },
+  {
+    icon: "database",
+    text: "Registra los saldos iniciales de manera sencilla y rápida."
+  },
+  {
+    icon: "users",
+    text: "Gestiona a todos tus clientes desde una única plataforma."
+  }
+];
+---
+
+<section class="cards">
+
+  {cards.map((c) => (
+    <div class="card">
+      <div class="icon">
+        {
+          c.icon === "sync" && (
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="#003296" viewBox="0 0 24 24">
+              <path d="M12 4V1L8 5l4 4V6c3.309 0 6 2.691 6 6a6.007 6.007 0 0 1-6 6c-2.305 0-4.307-1.393-5.197-3.391l-1.841.77A7.948 7.948 0 0 0 12 20c4.418 0 8-3.582 8-8s-3.582-8-8-8Z"/>
+            </svg>
+          )
+        }
+        {
+          c.icon === "clock" && (
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="#003296" viewBox="0 0 24 24">
+              <path d="M12 1a11 11 0 1 0 11 11A11 11 0 0 0 12 1Zm0 20a9 9 0 1 1 9-9a9.01 9.01 0 0 1-9 9Zm.5-9.79V6h-1v6l4.75 2.85l.5-.86Z"/>
+            </svg>
+          )
+        }
+        {
+          c.icon === "warning" && (
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="#003296" viewBox="0 0 24 24">
+              <path d="M1 21h22L12 2 1 21Zm12-3h-2v2h2v-2Zm0-6h-2v5h2v-5Z"/>
+            </svg>
+          )
+        }
+        {
+          c.icon === "database" && (
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="#003296" viewBox="0 0 24 24">
+              <path d="M12 2C7.589 2 4 3.791 4 6v12c0 2.209 3.589 4 8 4s8-1.791 8-4V6c0-2.209-3.589-4-8-4Zm0 2c3.309 0 6 .896 6 2s-2.691 2-6 2s-6-.896-6-2s2.691-2 6-2Zm0 16c-3.309 0-6-.896-6-2V9.709C7.534 10.523 9.66 11 12 11s4.466-.477 6-1.291V18c0 1.104-2.691 2-6 2Z"/>
+            </svg>
+          )
+        }
+        {
+          c.icon === "users" && (
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="#003296" viewBox="0 0 24 24">
+              <path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3s-3 1.34-3 3s1.34 3 3 3Zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5S5 6.34 5 8s1.34 3 3 3Zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5C15 14.17 10.33 13 8 13Zm8 0c-.29 0-.62.02-.97.05c1.16.84 1.97 2.05 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5Z"/>
+            </svg>
+          )
+        }
+      </div>
+      <p>{c.text}</p>
+    </div>
+  ))}
+</section>
+
+<style>
+.cards {
+  position: relative;
+  display: grid;
+  gap: 1.5rem;
+  padding: 3rem 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  z-index: 1; /* para que las cards queden encima del fondo */
+}
+
+.cards::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%; /* Solo aplica a la mitad */
+  background: #00aaff; /* azul */
+  z-index: -1; /* fondo detrás */
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.icon {
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #333;
+}
+</style>
+
