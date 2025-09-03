@@ -20,7 +20,10 @@ body {
   box-shadow: 0 6px 10px rgba(0, 84, 165, 0.637);
 }
 
-.nav-left,
+.nav-left {
+  padding-left: 30px;
+}
+
 .nav-center,
 .nav-right {
   display: flex;

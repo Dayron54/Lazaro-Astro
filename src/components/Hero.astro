@@ -1,0 +1,117 @@
+<section class="hero">
+  <!-- Imagen a la derecha -->
+  <div class="hero__bg">
+    <img src="/public/img-content1.jpg" alt="Hero image" />
+  </div>
+
+  <!-- Difuminado azul -->
+  <div class="hero__overlay"></div>
+
+  <!-- Texto -->
+  <div class="hero__content">
+    <h2>
+      Somos un sistema administrativo y contable <br> completo, 
+      <span>tenemos las últimas <br> actualizaciones de Facturación Electrónica</span>
+    </h2>
+    <h1>Administra <br> tus ventas <br>e inventarios</h1>
+    <a href="#contacto" class="hero__btn">¡Cotiza ahora!</a>
+  </div>
+</section>
+
+<style>
+.hero {
+  position: relative;
+  width: 100%;
+  height: 500px; /* fija altura */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* Contenedor de la imagen */
+.hero__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 55%; /* ancho del área reservada para la imagen */
+  z-index: 0;
+  overflow: hidden; /* recorta si se pasa */
+}
+
+
+.hero__bg img {
+  width: 100%;   /* ahora se adapta al ancho */
+  height: 100%;  /* mantiene la altura de la sección */
+  object-fit: cover; /* se "ancha" sin deformar, pero puede recortar un poco */
+
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-image: linear-gradient(to right, transparent 0%, black 30%);
+  mask-repeat: no-repeat;
+  mask-size: cover;
+
+}
+
+/* Difuminado solo en la parte izquierda */
+.hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 55%;
+  background: linear-gradient(
+    to right,
+    rgb(0, 50, 150) 0%,   /* azul sólido al inicio */
+    rgb(0, 50, 150) 42%,  /* mantiene azul hasta el 40% del ancho */
+    rgba(0, 50, 150, 0) 100% /* se desvanece hasta volverse transparente */
+  );
+  z-index: 1;
+}
+
+
+/* Texto */
+.hero__content { 
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  padding: 2rem;
+  padding-left: 50px;
+}
+
+.hero__content h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.hero__content h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.hero__content h2 span {
+  font-weight: 700;
+}
+
+.hero__btn {
+  display: inline-block;
+  margin-top: -8px;
+  width: 230px;
+  padding: 0.8rem 1.5rem;
+  background: #00aaff;
+  color: #fff;
+  font-size: 35px;
+  font-weight: bold;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.467);
+}
+
+.hero__btn:hover {
+  background: #0088cc;
+}
+</style>
