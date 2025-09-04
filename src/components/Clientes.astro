@@ -1,0 +1,65 @@
+---
+import ClientesCarousel from "./ClientesCarousel.jsx";
+---
+
+<section class="clientes">
+  <h2 class="titulo">Nuestros clientes</h2>
+  <ClientesCarousel client:only="react" />
+</section>
+
+<style>
+  .clientes {
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+
+  .titulo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: #004c97;
+  }
+
+  /* Swiper container */
+  .carrusel {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    box-sizing: border-box;
+  }
+
+  /* Cada slide de Swiper */
+  :global(.swiper-slide) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Caja del logo */
+  .logo-box {
+    width: 180px;       /* ancho fijo */
+    height: 100px;      /* alto fijo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 10px;
+    overflow: hidden;
+  }
+
+  /* Imagen del logo */
+  .logo-box img {
+    max-width: 100%;    /* nunca más grande que la caja */
+    max-height: 100%;
+    object-fit: contain; /* mantiene proporción */
+    display: block;
+  }
+
+  /* Flechas */
+  :global(.swiper-button-prev),
+  :global(.swiper-button-next) {
+    color: #004c97;
+  }
+</style>
