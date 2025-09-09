@@ -1,0 +1,157 @@
+---
+--- 
+
+<section class="contacto">
+  <div class="contacto-contenido">
+
+    <!-- Imagen con difuminado -->
+    <div class="contacto-img">
+      <div class="difuminado"></div>
+      <img src="/Inge-Lazaro.png" alt="Inge-Lazaro" />
+    </div>
+
+    <!-- Formulario -->
+    <div class="contacto-form">
+      <h2>Contáctanos</h2>
+      <form id="contactForm">
+        <input type="text" id="name" name="name" placeholder="Nombre" required />
+        <input type="email" id="email" name="email" placeholder="Correo" required />
+        <input type="tel" id="phone" name="phone" placeholder="Número de contacto" required />
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Script del cliente -->
+<script>
+  if (typeof window !== "undefined") {
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("contactForm") as HTMLFormElement;
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("name") as HTMLInputElement;
+        const email = document.getElementById("email") as HTMLInputElement;
+        const phone = document.getElementById("phone") as HTMLInputElement;
+
+        // Validación nombre
+        if (name.value.length < 3) {
+          alert("⚠️ El nombre debe tener al menos 3 caracteres.");
+          return;
+        }
+
+        // Validación email
+        const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+        if (!emailRegex.test(email.value)) {
+          alert("⚠️ Ingresa un correo válido.");
+          return;
+        }
+
+        // Validación teléfono (solo números y mínimo 10 dígitos)
+        const phoneRegex = /^[0-9]{10}$/;
+        if (!phoneRegex.test(phone.value)) {
+          alert("⚠️ Ingresa un número de contacto válido ( 10 dígitos).");
+          return;
+        }
+
+        // Mensaje para WhatsApp
+        const message = `Hola, soy ${name.value.trim()}. Mi correo es ${email.value.trim()} y mi número es ${phone.value.trim()}. Estoy interesado en el software.`;
+
+        // ⚡ Cambia este número por el de tu empresa
+        const url = `https://wa.me/573013846294?text=${encodeURIComponent(message)}`;
+
+        window.open(url, "_blank");
+      });
+    });
+  }
+</script>
+
+<style>
+/* Sección de contacto */
+.contacto {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.contacto-contenido {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px; /* vuelve al ancho original */
+  width: 100%;
+  gap: 40px;
+  flex-wrap: wrap; /* ✅ Se adapta en móviles */
+}
+
+/* Imagen con difuminado */
+.contacto-img {
+  position: relative;
+  width: 550px; /* tamaño img */
+  margin-left: -20%; /* mueve la imagen a la izquierda */
+}
+
+.contacto-img img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.difuminado {
+  position: absolute;
+  top: 50%;
+  left: 0; /* para que comience desde la izquierda */
+  width: 550px; /* tamaño */
+  height: 500px;
+  background: rgb(5, 190, 247); /* color */
+  border-radius: 50%;
+  filter: blur(70px); /* difuminado*/
+  transform: translate(-30%, -50%); /* ubicarlo a la izquierda */
+  z-index: 1;
+}
+
+/* Formulario */
+.contacto-form {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px; /* ✅ límite para que no se estire demasiado */
+}
+
+.contacto-form h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #003366;
+}
+
+.contacto-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contacto-form input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.contacto-form button {
+  padding: 12px;
+  background-color: #003366;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contacto-form button:hover {
+  background-color: #0055aa;
+}
+
+
+</style>

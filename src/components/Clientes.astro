@@ -8,58 +8,36 @@ import ClientesCarousel from "./ClientesCarousel.jsx";
 </section>
 
 <style>
-  .clientes {
-    text-align: center;
-    padding: 3rem 1rem;
-  }
+.clientes {
+  text-align: center;
+  padding: 2rem 1rem;
+}
 
-  .titulo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-    color: #004c97;
-  }
+.titulo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #004c97;
+}
 
-  /* Swiper container */
-  .carrusel {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    box-sizing: border-box;
-  }
+/* 🔹 contenedor del swiper */
+:global(.swiper) {
+  max-width: 1000px;   /* ancho controlado del carrusel */
+  margin: 0 auto;
+  position: relative;
+  padding: 0 40px;   /* espacio interno para que las flechas entren */
+  box-sizing: border-box;
+}
 
-  /* Cada slide de Swiper */
-  :global(.swiper-slide) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* 🔹 responsive */
+@media (max-width: 768px) {
+  :global(.swiper) {
+    max-width: 320px;
+    padding: 0 30px;
   }
-
-  /* Caja del logo */
-  .logo-box {
-    width: 180px;       /* ancho fijo */
-    height: 100px;      /* alto fijo */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    padding: 10px;
-    overflow: hidden;
-  }
-
-  /* Imagen del logo */
   .logo-box img {
-    max-width: 100%;    /* nunca más grande que la caja */
-    max-height: 100%;
-    object-fit: contain; /* mantiene proporción */
-    display: block;
+    max-height: 80px;
   }
+}
 
-  /* Flechas */
-  :global(.swiper-button-prev),
-  :global(.swiper-button-next) {
-    color: #004c97;
-  }
+
 </style>

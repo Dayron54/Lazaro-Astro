@@ -5,10 +5,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 const clientes = [
-  { nombre: "Don Pedro", img: "/public/logos/Logo-donPedro.png" },
-  { nombre: "Herbolario", img: "/logos/Logo-herbolario.png" },
-  { nombre: "Comarca", img: "/logos/Logo-comarca.png" },
-  { nombre: "Colfamil", img: "/public/logos/Logo-colfamil.jpeg" }
+  { nombre: "Don Pedro", img: "/logos/Logo-donPedro.png" },
+  { nombre: "Herbolario", img: "/logos/Logo-herbolario1.png" },
+  { nombre: "Comarca", img: "/logos/Logo-comarca1.png" },
+  { nombre: "Colfamil", img: "/logos/Logo-colfamil1.jpg" },
+  { nombre: "Creperia", img: "/logos/Logo-Creperia.png" }
 ];
 
 export default function ClientesCarousel() {
@@ -16,10 +17,14 @@ export default function ClientesCarousel() {
     <Swiper
       modules={[Navigation, Autoplay]}
       navigation={true}
-      autoplay={{ delay: 2500, disableOnInteraction: false }}
+      autoplay={{ delay: 3000, disableOnInteraction: false }}
       loop={true}
-      slidesPerView={3}
-      spaceBetween={30}
+      spaceBetween={20}
+      slidesPerView={1}   // 🔹 siempre empieza en 1
+      breakpoints={{
+        768: { slidesPerView: 1 },    // tablet
+        1200: { slidesPerView: 1 }    // desktop
+      }}
       className="carrusel"
     >
       {clientes.map((cliente) => (
