@@ -1,95 +1,114 @@
 <section class="hero">
-  <!-- Imagen a la derecha -->
-  <div class="hero__bg">
-    <img src="/img-content1.jpg" alt="Hero image" />
+  <!-- SLIDES -->
+  <div class="hero__slides">
+    <div class="hero__slide active">
+      <img src="/public/img-content1.jpg" alt="Hero 1" />
+    </div>
+    <div class="hero__slide">
+      <img src="/public/img-content2.jpg" alt="Hero 2" />
+    </div>
+    <div class="hero__slide">
+      <img src="/public/img-content1.jpg" alt="Hero 3" />
+    </div>
   </div>
 
-  <!-- Difuminado azul -->
+  <!-- GRADIENTE -->
   <div class="hero__overlay"></div>
 
-  <!-- Texto -->
+  <!-- TEXTO -->
   <div class="hero__content">
     <h2>
-      Somos un sistema administrativo y contable <br> completo, 
-      <span>tenemos las últimas <br> actualizaciones de Facturación Electrónica</span>
+      Somos un sistema administrativo y contable completo,
+      <span>con las últimas actualizaciones de Facturación Electrónica</span>
     </h2>
-    <h1>Administra <br> tus ventas <br>e inventarios</h1>
+
+    <h1>
+      Administra <br />
+      tus ventas <br />
+      e inventarios
+    </h1>
+
     <a href="#contacto" class="hero__btn">¡Cotiza ahora!</a>
   </div>
+
+  <!-- JS SLIDER -->
+  <script>
+    let current = 0;
+    const slides = document.querySelectorAll('.hero__slide');
+
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 5000);
+  </script>
 </section>
 
+
 <style>
+/* ===== HERO BASE ===== */
 .hero {
   position: relative;
   width: 100%;
-  height: 500px; /* fija altura */
-  display: flex;
-  align-items: center;
+  height: 520px;
   overflow: hidden;
   color: #fff;
 }
 
-/* Contenedor de la imagen */
-.hero__bg {
+/* SLIDES */
+.hero__slides {
   position: absolute;
-  top: 0;
-  right: 0;
+  inset: 0;
+}
+
+.hero__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.hero__slide.active {
+  opacity: 1;
+}
+
+.hero__slide img {
+  width: 100%;
   height: 100%;
-  width: 55%; /* ancho del área reservada para la imagen */
-  z-index: 0;
-  overflow: hidden; /* recorta si se pasa */
+  object-fit: cover;
 }
 
-
-.hero__bg img {
-  width: 100%;   /* ahora se adapta al ancho */
-  height: 100%;  /* mantiene la altura de la sección */
-  object-fit: cover; /* se "ancha" sin deformar, pero puede recortar un poco */
-
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%);
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: cover;
-  mask-image: linear-gradient(to right, transparent 0%, black 30%);
-  mask-repeat: no-repeat;
-  mask-size: cover;
-
-}
-
-/* Difuminado solo en la parte izquierda */
+/* GRADIENTE (desktop) */
 .hero__overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 55%;
+  inset: 0;
   background: linear-gradient(
     to right,
-    rgb(0, 50, 150) 0%,   /* azul sólido al inicio */
-    rgb(0, 50, 150) 42%,  /* mantiene azul hasta el 40% del ancho */
-    rgba(0, 50, 150, 0) 100% /* se desvanece hasta volverse transparente */
+    rgb(0, 50, 150) 0%,
+    rgb(0, 50, 150) 45%,
+    rgba(0, 50, 150, 0) 100%
   );
   z-index: 1;
 }
 
-
-/* Texto */
-.hero__content { 
+/* CONTENIDO */
+.hero__content {
   position: relative;
   z-index: 2;
-  max-width: 600px;
-  padding: 2rem;
-  padding-left: 50px;
+  max-width: 700px;
+  padding: 3rem;
 }
 
 .hero__content h1 {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
+  line-height: 1.1;
 }
 
 .hero__content h2 {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
   font-weight: 400;
-  line-height: 1.5;
+  margin-bottom: 1rem;
 }
 
 .hero__content h2 span {
@@ -98,20 +117,42 @@
 
 .hero__btn {
   display: inline-block;
-  margin-top: -8px;
-  width: 230px;
-  padding: 0.8rem 1.5rem;
+  margin-top: 1rem;
+  padding: 0.8rem 1.6rem;
   background: #00aaff;
   color: #fff;
-  font-size: 35px;
+  font-size: 1.2rem;
   font-weight: bold;
   border-radius: 25px;
   text-decoration: none;
-  transition: 0.3s;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.467);
 }
 
-.hero__btn:hover {
-  background: #0088cc;
+/* ===== 📱 MÓVIL ===== */
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    min-height: 480px;
+  }
+
+  .hero__overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 50, 150, 0.95) 0%,
+      rgba(0, 50, 150, 0.85) 60%,
+      rgba(0, 50, 150, 0.95) 100%
+    );
+  }
+
+  .hero__content {
+    max-width: 100%;
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  .hero__btn {
+    font-size: 1.1rem;
+  }
 }
+
+
 </style>

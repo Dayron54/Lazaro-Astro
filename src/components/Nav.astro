@@ -1,38 +1,67 @@
----
-const links = [
-  { href: '/', label: 'Inicio' },
-  { href: '#', label: 'Módulos' },
-  { href: '#', label: 'Clientes' },
-  { href: '#', label: 'Nosotros' },
-  { href: '#', label: 'Contacto' },
-];
----
-
 <nav class="navbar">
-  <!-- Logo -->
+  <!-- IZQUIERDA -->
   <div class="nav-left">
     <a href="/">
-      <img src="/logo-lazaro.png" alt="Lázaro Software" style="height:40px;" />
+      <img src="/logo-lazaro.png" alt="Lázaro Software" />
     </a>
   </div>
 
-  <!-- Links -->
+  <!-- CENTRO (links escritorio) -->
   <div class="nav-center">
-    {links.map((l) => (
-      <a href={l.href}>{l.label}</a>
-    ))}
+    <a href="/">Inicio</a>
+    <a href="#">Módulos</a>
+    <a href="#">Clientes</a>
+    <a href="#">Nosotros</a>
+    <a href="#">Contacto</a>
   </div>
 
-  <!-- Botón y redes -->
+  <!-- DERECHA (acciones escritorio) -->
   <div class="nav-right">
     <a class="wompi-btn" href="https://checkout.wompi.co/" target="_blank">
       Paga con Wompi
     </a>
-    <a href="https://www.facebook.com/p/Lazaro-Software-100063740972972/?locale=es_LA" target="_blank">
+    <a href="#" target="_blank">
       <img src="/logo-facebook.png" alt="Facebook" />
     </a>
-    <a href="https://www.instagram.com/lazarosoftware_/?hl=es" target="_blank">
+    <a href="#" target="_blank">
       <img src="/logo-instagram.png" alt="Instagram" />
     </a>
   </div>
+
+  <!-- BOTÓN MÓVIL -->
+  <button class="nav-toggle" aria-label="Abrir menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- MENÚ MÓVIL -->
+  <div class="nav-mobile">
+    <a href="/">Inicio</a>
+    <a href="#">Módulos</a>
+    <a href="#">Clientes</a>
+    <a href="#">Nosotros</a>
+    <a href="#">Contacto</a>
+
+    <div class="nav-mobile-actions">
+      <a class="wompi-btn" href="https://checkout.wompi.co/" target="_blank">
+        Paga con Wompi
+      </a>
+      <div class="nav-mobile-social">
+        <a href="#"><img src="/logo-facebook.png" /></a>
+        <a href="#"><img src="/logo-instagram.png" /></a>
+      </div>
+    </div>
+  </div>
 </nav>
+
+<script is:inline>
+  const toggle = document.querySelector('.nav-toggle');
+  const mobileMenu = document.querySelector('.nav-mobile');
+
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+  });
+</script>
+
