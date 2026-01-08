@@ -22,33 +22,44 @@ const year = new Date().getFullYear();
     </div>
 
     <!-- derecha: datos + wompi + redes -->
+     <!-- botones de whatsapp -->
+
     <div class="footer-info">
-      <a 
-        href="https://wa.me/573168204407?text=Buen%20día%2C%20necesito%20soporte%20técnico.%0AMi%20nombre%20es%3A%0ADe%20la%20empresa%3A%0ADe%20la%20ciudad%3A%0A%0ALa%20falla%20es%3A"
-        target="_blank"
-        rel="noopener"
-        class="btn-whatsapp"
-      >
-        📲 Areá Tecnica por WhatsApp - 3168204407
-      </a>
+      <h3>Lineas de atencion por whatsapp</h3>
+      <div class="iconos">
+        <a
+          href="https://wa.me/573168204407?text=Buen%20día%2C%20necesito%20soporte%20técnico.%0AMi%20nombre%20es%3A%0ADe%20la%20empresa%3A%0ADe%20la%20ciudad%3A%0A%0ALa%20falla%20es%3A"
+          target="_blank"
+          rel="noopener"
+          class="btn-whatsapp"
+          title="Areá Tecnica"
+        >
+        <img src="/public/icono-tecnico.png" alt="icono-tecnico" />
+  
+        </a>
+  
+        <a
+          href="https://wa.me/573163977448?text=Buen%20día%2C%20necesito%20soporte.%0A%0AMi%20nombre%20es%3A%0ADe%20la%20empresa%3A%0ADe%20la%20ciudad%3A%0ALa%20falla%20o%20el%20requerimiento%20es%3A"
+          target="_blank"
+          rel="noopener"
+          class="btn-whatsapp"
+          title="Areá de Soporte"
+        >
+        <img src="/public/icono-soporte.png" alt="icono-soporte" />
+  
+        </a>
+  
+        <a
+          href="https://wa.me/573173718032?text=Buen%20día.%0A%0AMi%20nombre%20es%3A%0A%0AY%20requiero%20asesoría%20de%20ventas."
+          target="_blank"
+          rel="noopener"
+          class="btn-whatsapp"
+          title="Areá de Ventas"
+        >
+        <img src="/public/icono-ventas.png" alt="icono-ventas" />
+        </a>
 
-      <a 
-        href="https://wa.me/573163977448?text=Buen%20día%2C%20necesito%20soporte.%0A%0AMi%20nombre%20es%3A%0ADe%20la%20empresa%3A%0ADe%20la%20ciudad%3A%0ALa%20falla%20o%20el%20requerimiento%20es%3A"
-        target="_blank"
-        rel="noopener"
-        class="btn-whatsapp"
-      >
-        📲 Areá de Soporte por WhatsApp - 3163977448
-      </a>
-
-      <a 
-        href="https://wa.me/573173718032?text=Buen%20día.%0A%0AMi%20nombre%20es%3A%0A%0AY%20requiero%20asesoría%20de%20ventas."
-        target="_blank"
-        rel="noopener"
-        class="btn-whatsapp"
-      >
-        📲 Areá de Ventas por WhatsApp - 3173718032
-      </a>
+      </div>
 
       <p class="address">Cra. 4D #38-65 barrio magisterio, Ibagué, Tolima</p>
 
@@ -203,24 +214,35 @@ const year = new Date().getFullYear();
   }
 
   /* Estilos para links de whatsapp por area */
+  .footer-info h3 {
+    font-weight: 450;
+  }
+
+  .iconos {
+    display: flex; 
+    justify-content: flex-end; 
+    gap: 20px;
+  }
   .btn-whatsapp {
-  display: block;
-  width: 300px;
-  margin: 12px 0 12px auto; /*alineacion a la derecha*/
-  text-align: center;
-  background-color: #25d366;
-  color: white;
-  padding: 12px 18px;
-  border-radius: 8px;
+  display: inline-flex;
+  justify-content: center;
+  width: 50px;
+  background: linear-gradient(90deg, #29a9ff, #32d1f7);
+  padding: 10px 10px;
+  border-radius: 999px;
   text-decoration: none;
-  font-weight: 600;
+  margin-bottom: 7px;
   transition: background 0.3s;
 }
 
-.btn-whatsapp:hover {
-  background-color: #1ebe5d;
+.btn-whatsapp:hover{
+  transform: translateY(-2px);
 }
 
+.footer-info img {
+  width: 38px;
+  height: 38px;
+}
 
   /* Responsive */
   @media (max-width: 900px) {
