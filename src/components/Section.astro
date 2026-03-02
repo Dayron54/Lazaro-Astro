@@ -1,53 +1,89 @@
-<section class="section">
-  <h1><em>Soluciones inteligentes</em></h1>
-  <p>
-    Nuestras soluciones son robustas, intuitivas y muy funcionales desarrolladas con
-    herramientas de última tecnología lo que permite estar en línea a través de cualquier
-    dispositivo con una simple conexión a Internet, y están dirigidas básicamente a áreas
-    que definen nuestro ámbito de actuación.
-  </p>
-  <div class="underline"></div>
+<section class="solutions">
+  <div class="solutions-container">
+
+    <h2>
+      Soluciones <span class="blue">inteligentes</span>
+    </h2>
+
+    <p>
+      Nuestras soluciones son robustas, intuitivas y muy funcionales desarrolladas con
+      herramientas de última tecnología lo que permite estar en línea a través de cualquier
+      dispositivo con una simple conexión a Internet.
+    </p>
+
+    <div class="underline"></div>
+
+  </div>
 </section>
 
 <style>
-.section {
-  text-align: center;
-  padding-bottom: 30px;
-  max-width: 900px;
-  margin: 0 auto;
+/* ===== SECTION BASE ===== */
+
+.solutions {
+  padding: 5rem 2rem;
+  background: #f5f6f8;
 }
 
-.section h1 {
-    font-size: 3rem;
-  color: #003296;
+.solutions-container {
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ===== TITULO ===== */
+
+.solutions h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #0f172a;
   margin-bottom: 1.5rem;
 }
 
-.section p {
+.solutions .blue {
+  color: #1d9bd1;
+}
+
+/* ===== TEXTO ===== */
+
+.solutions p {
   font-size: 1.1rem;
-  line-height: 1.6;
-  font-weight: 500;
-  color: #222;
-  margin-bottom: 2rem;
+  line-height: 1.7;
+  color: #64748b;
+  margin-bottom: 2.5rem;
 }
 
-/* Línea azul  */
+/* ===== LINEA ===== */
+
 .underline {
-  width: 80%;
-  max-width: 500px;
+  width: 70px;
   height: 4px;
-  background-color: #00aaff;
+  background: #1d9bd1;
   margin: 0 auto;
-  border-radius: 2px;
-  animation: expand 2s ease forwards;
+  border-radius: 3px;
+  animation: grow 1.2s ease forwards;
 }
 
-@keyframes expand {
+/* Animación elegante */
+@keyframes grow {
   from {
     width: 0;
+    opacity: 0;
   }
   to {
-    width: 60%;
+    width: 70px;
+    opacity: 1;
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+  .solutions h2 {
+    font-size: 2.2rem;
+  }
+
+  .solutions p {
+    font-size: 1rem;
   }
 }
 </style>

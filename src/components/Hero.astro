@@ -1,158 +1,174 @@
 <section class="hero">
-  <!-- SLIDES -->
-  <div class="hero__slides">
-    <div class="hero__slide active">
-      <img src="/public/img-content1.jpg" alt="Hero 1" />
+  <div class="hero-container">
+    <!-- IZQUIERDA -->
+    <div class="hero-content">
+      <span class="hero-badge">
+        <span class="dot"></span>
+        CONEXIÓN DIRECTA CON LA DIAN
+      </span>
+
+      <h1>
+        Administra tus
+        <span class="blue">ventas e</span>
+        <span class="blue">inventarios</span>
+      </h1>
+
+      <p>
+        Somos el sistema administrativo y contable más robusto, con las últimas
+        actualizaciones de Facturación Electrónica para que tu negocio nunca se
+        detenga.
+      </p>
+
+      <div class="hero-buttons">
+        <a
+          href="https://wa.me/573173718032?text=Buen%20d%C3%ADa.%0A%0AMi%20nombre%20es%3A%0A%0AY%20requiero%20asesor%C3%ADa%20de%20ventas."
+          class="btn-primary" target="_blank">¡Cotiza ahora!</a
+        >
+        <a href="#" target="_blank" class="btn-secondary" > ▶ Ver Demo </a>
+      </div>
     </div>
-    <div class="hero__slide">
-      <img src="/public/img-content2.jpg" alt="Hero 2" />
-    </div>
-    <div class="hero__slide">
-      <img src="/public/img-content1.jpg" alt="Hero 3" />
+
+    <!-- DERECHA -->
+    <div class="hero-image">
+      <div class="image-card">
+        <img src="/public/img-content1.jpg" alt="Sistema Lázaro" />
+      </div>
     </div>
   </div>
-
-  <!-- GRADIENTE -->
-  <div class="hero__overlay"></div>
-
-  <!-- TEXTO -->
-  <div class="hero__content">
-    <h2>
-      Somos un sistema administrativo y contable completo,
-      <span>con las últimas actualizaciones de Facturación Electrónica</span>
-    </h2>
-
-    <h1>
-      Administra <br />
-      tus ventas <br />
-      e inventarios
-    </h1>
-
-    <a href="#contacto" class="hero__btn">¡Cotiza ahora!</a>
-  </div>
-
-  <!-- JS SLIDER -->
-  <script>
-    let current = 0;
-    const slides = document.querySelectorAll('.hero__slide');
-
-    setInterval(() => {
-      slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
-    }, 5000);
-  </script>
 </section>
 
-
 <style>
-/* ===== HERO BASE ===== */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 520px;
-  overflow: hidden;
-  color: #fff;
-}
-
-/* SLIDES */
-.hero__slides {
-  position: absolute;
-  inset: 0;
-}
-
-.hero__slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
-.hero__slide.active {
-  opacity: 1;
-}
-
-.hero__slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* GRADIENTE (desktop) */
-.hero__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgb(0, 50, 150) 0%,
-    rgb(0, 50, 150) 45%,
-    rgba(0, 50, 150, 0) 100%
-  );
-  z-index: 1;
-}
-
-/* CONTENIDO */
-.hero__content {
-  position: relative;
-  z-index: 2;
-  max-width: 700px;
-  padding: 3rem;
-}
-
-.hero__content h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
-  line-height: 1.1;
-}
-
-.hero__content h2 {
-  font-size: clamp(1rem, 1.5vw, 1.3rem);
-  font-weight: 400;
-  margin-bottom: 1rem;
-}
-
-.hero__content h2 span {
-  font-weight: 700;
-}
-
-.hero__btn {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.8rem 1.6rem;
-  background: #00aaff;
-  color: #fff;
-  font-size: 1.2rem;
-  font-weight: bold;
-  border-radius: 25px;
-  text-decoration: none;
-}
-
-/* ===== 📱 MÓVIL ===== */
-@media (max-width: 768px) {
+  /* ===== HERO ===== */
   .hero {
-    height: auto;
-    min-height: 480px;
+    padding: 5rem 3rem;
+    background: linear-gradient(to right, #f4f4f4, #c9d9e4);
   }
 
-  .hero__overlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 50, 150, 0.95) 0%,
-      rgba(0, 50, 150, 0.85) 60%,
-      rgba(0, 50, 150, 0.95) 100%
-    );
+  .hero-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
   }
 
-  .hero__content {
-    max-width: 100%;
-    padding: 2rem 1.5rem;
-    text-align: center;
+  /* ===== IZQUIERDA ===== */
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #dbe8f2;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #0b4a8f;
   }
 
-  .hero__btn {
-    font-size: 1.1rem;
+  .hero-badge .dot {
+    width: 8px;
+    height: 8px;
+    background: #0b4a8f;
+    border-radius: 50%;
   }
-}
 
+  .hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 800;
+    color: #0f172a;
+  }
 
+  .hero-content .blue {
+    display: block;
+    color: #0b6ea8;
+  }
+
+  .hero-content p {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #4b5563;
+    max-width: 500px;
+  }
+
+  /* ===== BOTONES ===== */
+
+  .hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .btn-primary {
+    background: #0b4a8f;
+    color: white;
+    padding: 0.9rem 1.8rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-primary:hover {
+    background: #083b72;
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.8rem;
+    border-radius: 30px;
+    border: 1px solid #cbd5e1;
+    text-decoration: none;
+    color: #0f172a;
+    font-weight: 500;
+    background: white;
+    transition: 0.3s;
+  }
+
+  .btn-secondary:hover {
+    background: #f1f5f9;
+  }
+
+  /* ===== IMAGEN ===== */
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .image-card {
+    padding: 1rem;
+    border-radius: 25px;
+    border: 4px solid #0b6ea8;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .image-card img {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  /* ===== RESPONSIVE ===== */
+
+  @media (max-width: 992px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .hero-content p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-buttons {
+      justify-content: center;
+    }
+  }
 </style>
