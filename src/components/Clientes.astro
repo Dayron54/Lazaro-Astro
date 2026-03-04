@@ -1,43 +1,128 @@
 ---
-import ClientesCarousel from "./ClientesCarousel.jsx";
+const clientes = [
+  "/logos/Logo-colfamil.jpeg",
+  "/logos/Logo-comarca1.png",
+  "/logos/Logo-Creperia.png",
+  "/logos/Logo-donPedro.png",
+  "/logos/Logo-herbolario1.png",
+];
 ---
 
 <section class="clientes">
-  <h2 class="titulo">Nuestros clientes</h2>
-  <ClientesCarousel client:only="react" />
+  <div class="container">
+    <h2 class="clientes__title">Confían en nosotros</h2>
+
+    <div class="clientes__carousel">
+      <div class="clientes__track">
+        {/* Duplicamos los logos para efecto infinito */}
+        {[...clientes, ...clientes].map((logo) => (
+          <div class="cliente">
+            <img src={logo} alt="Logo cliente" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
 </section>
 
 <style>
-.clientes {
-  text-align: center;
-  padding: 2rem 1rem;
-}
-
-.titulo {
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: #004c97;
-}
-
-/* 🔹 contenedor del swiper */
-:global(.swiper) {
-  max-width: 1000px;   /* ancho controlado del carrusel */
-  margin: 0 auto;
-  position: relative;
-  padding: 0 40px;   /* espacio interno para que las flechas entren */
-  box-sizing: border-box;
-}
-
-/* 🔹 responsive */
-@media (max-width: 768px) {
-  :global(.swiper) {
-    max-width: 320px;
-    padding: 0 30px;
+  .clientes {
+    background: #f3f4f6;
+    padding: 5rem 2rem;
+    text-align: center;
+    overflow: hidden;
   }
-  .logo-box img {
-    max-height: 80px;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
   }
-}
 
+  .clientes__title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 3rem;
+  }
 
+  /* Wrapper */
+  .clientes__carousel {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Track animado */
+  .clientes__track {
+    display: flex;
+    gap: 5rem;
+    width: max-content;
+    animation: scroll 25s linear infinite;
+  }
+
+  /* Cada logo */
+  .cliente {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+  }
+
+  .cliente img {
+    max-height: 50px;
+    width: auto;
+    object-fit: contain;
+    /* opacity: 0.8; */
+    transition: all 0.3s ease;
+  }
+
+  /* .cliente img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+  } */
+
+  /* Animación infinita */
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Fade lateral (efecto elegante) */
+  .clientes__carousel::before,
+  .clientes__carousel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .clientes__carousel::before {
+    left: 0;
+    background: linear-gradient(to right, #f3f4f6, transparent);
+  }
+
+  .clientes__carousel::after {
+    right: 0;
+    background: linear-gradient(to left, #f3f4f6, transparent);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .clientes__track {
+      gap: 3rem;
+      animation-duration: 18s;
+    }
+
+    .cliente img {
+      max-height: 40px;
+    }
+  }
 </style>
