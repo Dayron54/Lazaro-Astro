@@ -1,67 +1,65 @@
 ---
---- 
+---
 
 <section class="contacto">
-  <div class="contacto-contenido">
+  <div class="contacto-wrapper">
 
-    <!-- Imagen con difuminado -->
-    <div class="contacto-img">
-      <div class="difuminado"></div>
-      <img src="/Inge-Lazaro.png" alt="Inge-Lazaro" />
-    </div>
+    <!-- Lado izquierdo (Formulario) -->
+    <div class="contacto-left">
+      <h2>Hablemos de tu negocio</h2>
+      <p>
+        Estamos listos para ayudarte a escalar tu empresa con
+        las mejores herramientas tecnológicas.
+      </p>
 
-    <!-- Formulario -->
-    <div class="contacto-form">
-      <h2>Contáctanos</h2>
       <form id="contactForm">
-        <input type="text" id="name" name="name" placeholder="Nombre" required />
-        <input type="email" id="email" name="email" placeholder="Correo" required />
+        <input type="text" id="name" name="name" placeholder="Nombre completo" required />
+        <input type="email" id="email" name="email" placeholder="Correo electrónico" required />
         <input type="tel" id="phone" name="phone" placeholder="Número de contacto" required />
-        <button type="submit">Enviar</button>
+        <button type="submit">Enviar mensaje</button>
       </form>
     </div>
+
+    <!-- Lado derecho (Imagen) -->
+    <div class="contacto-right">
+      <img src="/Inge-Lazaro.png" alt="Asesor" />
+    </div>
+
   </div>
 </section>
 
-<!-- Script del cliente -->
 <script>
   if (typeof window !== "undefined") {
     document.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("contactForm") as HTMLFormElement;
+      const form = document.getElementById("contactForm");
 
       form.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        const name = document.getElementById("name") as HTMLInputElement;
-        const email = document.getElementById("email") as HTMLInputElement;
-        const phone = document.getElementById("phone") as HTMLInputElement;
+        const name = document.getElementById("name");
+        const email = document.getElementById("email");
+        const phone = document.getElementById("phone");
 
-        // Validación nombre
         if (name.value.length < 3) {
-          alert("⚠️ El nombre debe tener al menos 3 caracteres.");
+          alert("El nombre debe tener al menos 3 caracteres.");
           return;
         }
 
-        // Validación email
         const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
         if (!emailRegex.test(email.value)) {
-          alert("⚠️ Ingresa un correo válido.");
+          alert("Ingresa un correo válido.");
           return;
         }
 
-        // Validación teléfono (solo números y mínimo 10 dígitos)
         const phoneRegex = /^[0-9]{10}$/;
         if (!phoneRegex.test(phone.value)) {
-          alert("⚠️ Ingresa un número de contacto válido ( 10 dígitos).");
+          alert("Ingresa un número válido (10 dígitos).");
           return;
         }
 
-        // Mensaje para WhatsApp
-        const message = `Hola, soy ${name.value.trim()}. Mi correo es ${email.value.trim()} y mi número es ${phone.value.trim()}. Estoy interesado en el software.`;
+        const message = `Hola, soy ${name.value}. Mi correo es ${email.value} y mi número es ${phone.value}. Estoy interesado en el software.`;
 
-        // ⚡ Cambia este número por el de tu empresa
-        const url = `https://wa.me/573013846294?text=${encodeURIComponent(message)}`;
-
+        const url = `https://wa.me/573173718032?text=${encodeURIComponent(message)}`;
         window.open(url, "_blank");
       });
     });
@@ -69,89 +67,142 @@
 </script>
 
 <style>
-/* Sección de contacto */
 .contacto {
-  padding: 60px 20px;
+  background: #f3f4f6;
+  padding: 6rem 2rem;
   display: flex;
   justify-content: center;
 }
 
-.contacto-contenido {
+.contacto-wrapper {
+  background: #0f4c81;
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1000px; /* vuelve al ancho original */
-  width: 100%;
-  gap: 40px;
-  flex-wrap: wrap; /* ✅ Se adapta en móviles */
+  overflow: hidden;
 }
 
-/* Imagen con difuminado */
-.contacto-img {
-  position: relative;
-  width: 550px; /* tamaño img */
-  margin-left: -20%; /* mueve la imagen a la izquierda */
+/* Lado izquierdo */
+.contacto-left {
+  flex: 1;
+  padding: 4rem;
+  color: white;
 }
 
-.contacto-img img {
-  position: relative;
-  z-index: 2;
-  width: 100%;
+.contacto-left h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
 }
 
-.difuminado {
-  position: absolute;
-  top: 50%;
-  left: 0; /* para que comience desde la izquierda */
-  width: 550px; /* tamaño */
-  height: 500px;
-  background: rgb(5, 190, 247); /* color */
-  border-radius: 50%;
-  filter: blur(70px); /* difuminado*/
-  transform: translate(-30%, -50%); /* ubicarlo a la izquierda */
-  z-index: 1;
+.contacto-left p {
+  color: #dbeafe;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 450px;
 }
 
 /* Formulario */
-.contacto-form {
-  flex: 1;
-  min-width: 300px;
-  max-width: 400px; /* ✅ límite para que no se estire demasiado */
-}
-
-.contacto-form h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-  color: #003366;
-}
-
-.contacto-form form {
+.contacto-left form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 1.2rem;
+  max-width: 450px;
 }
 
-.contacto-form input {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-}
-
-.contacto-form button {
-  padding: 12px;
-  background-color: #003366;
+.contacto-left input {
+  padding: 16px 20px;
+  border-radius: 40px;
+  border: none;
+  background: rgba(255,255,255,0.15);
   color: white;
   font-size: 16px;
+  outline: none;
+}
+
+.contacto-left input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+.contacto-left input:focus {
+  background: rgba(255,255,255,0.25);
+}
+
+.contacto-left button {
+  padding: 16px;
+  border-radius: 40px;
   border: none;
-  border-radius: 8px;
+  background: #1da1f2;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: 0.3s ease;
 }
 
-.contacto-form button:hover {
-  background-color: #0055aa;
+.contacto-left button:hover {
+  background: #0ea5e9;
+  transform: translateY(-2px);
 }
 
+/* Imagen derecha */
+.contacto-right {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  /* background: linear-gradient(135deg, #0f4c81, #0a3a63); */
+}
 
+.contacto-right img {
+  max-height: 520px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .contacto-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contacto-left {
+    padding: 3rem 2rem;
+  }
+
+  .contacto-left form {
+    margin: 0 auto;
+  }
+
+  .contacto-right {
+    width: 100%;
+    padding-top: 2rem;
+  }
+
+  .contacto-right img {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contacto-left h2 {
+    font-size: 2rem;
+  }
+
+  .contacto-left p {
+    font-size: 14px;
+  }
+
+  .contacto-left input {
+    font-size: 14px;
+  }
+
+  .contacto-left button {
+    font-size: 14px;
+  }
+}
 </style>
