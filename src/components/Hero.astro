@@ -30,12 +30,39 @@
 
     <!-- DERECHA -->
     <div class="hero-image">
-      <div class="image-card">
-        <img src="/public/img-content1.jpg" alt="Sistema Lázaro" />
-      </div>
-    </div>
+  <div class="image-card">
+    <img id="hero-slider" src="/img-content1.jpg" alt="Sistema Lázaro" />
+  </div>
+</div>
   </div>
 </section>
+
+<script>
+if (typeof window !== "undefined") {
+
+  const images = [
+    "/img-content1.jpg",
+    "/img-content2.jpg",
+    "/img-content3.jpg",
+    "/img-content4.jpg"
+  ];
+
+  let index = 0;
+  const heroImage = document.getElementById("hero-slider");
+
+  setInterval(() => {
+    index = (index + 1) % images.length;
+
+    heroImage.classList.remove("fade");
+
+    setTimeout(() => {
+      heroImage.src = images[index];
+      heroImage.classList.add("fade");
+    }, 200);
+
+  }, 5000); // cambia cada 5 segundos
+}
+</script>
 
 <style>
   /* ===== HERO ===== */
@@ -137,22 +164,41 @@
 
   /* ===== IMAGEN ===== */
 
-  .hero-image {
-    display: flex;
-    justify-content: center;
-  }
+.hero-image {
+  display: flex;
+  justify-content: center;
+}
 
-  .image-card {
-    padding: 1rem;
-    border-radius: 25px;
-    border: 4px solid #0b6ea8;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  }
+.image-card {
+  padding: 1rem;
+  border-radius: 30px;
+  border: 3px solid #0b6ea8;
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+   transition: transform 0.4s ease;
+}
 
-  .image-card img {
-    width: 100%;
-    max-width: 420px;
-  }
+
+.image-card:hover {
+  transform: translateY(-6px);
+}
+
+.image-card img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 18px;
+  object-fit: cover;
+  transition: opacity 0.6s ease;
+}
+
+.image-card img.fade {
+  opacity: 1;
+}
+
+.image-card img:not(.fade) {
+  opacity: 0.2;
+}
 
   /* ===== RESPONSIVE ===== */
 
