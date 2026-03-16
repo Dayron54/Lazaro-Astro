@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
   --nav-bg: rgb(0, 84, 164); /* Azul oscuro */
   --nav-text: #fff;
@@ -12,6 +14,6 @@
 
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
