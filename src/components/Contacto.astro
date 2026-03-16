@@ -22,7 +22,7 @@
 
     <!-- Lado derecho (Imagen) -->
     <div class="contacto-right">
-      <img src="/Inge-Lazaro.png" alt="Asesor" />
+      <img src="/Inge-Lazaro.png" alt="ing_lazaro" />
     </div>
 
   </div>
@@ -57,7 +57,13 @@
           return;
         }
 
-        const message = `Hola, soy ${name.value}. Mi correo es ${email.value} y mi número es ${phone.value}. Estoy interesado en el software.`;
+        const message = `Hola
+
+Mi nombre es: ${name.value} 
+Correo: ${email.value} 
+Teléfono: ${phone.value}
+
+Estoy interesado en recibir información sobre el software.`;
 
         const url = `https://wa.me/573173718032?text=${encodeURIComponent(message)}`;
         window.open(url, "_blank");
@@ -160,11 +166,15 @@
 .contacto-right img {
   max-height: 520px;
   width: auto;
+  margin-bottom: -112px;
   object-fit: contain;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
+  .contacto-right img {
+    padding-bottom: 0%;
+  }
   .contacto-wrapper {
     flex-direction: column;
     text-align: center;
@@ -189,6 +199,9 @@
 }
 
 @media (max-width: 600px) {
+  .contacto-right img {
+    padding-bottom: 0%;
+  }
   .contacto-left h2 {
     font-size: 2rem;
   }
