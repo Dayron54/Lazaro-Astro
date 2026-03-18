@@ -31,7 +31,7 @@
     <!-- DERECHA -->
     <div class="hero-image">
   <div class="image-card">
-    <img id="hero-slider" src="/img-content1.jpg" alt="Sistema Lázaro" />
+    <img class="fade" id="hero-slider" src="/img-content1.jpg" alt="Sistema Lázaro" />
   </div>
 </div>
   </div>
@@ -47,16 +47,20 @@ if (typeof window !== "undefined") {
   ];
 
   let index = 0;
-  const heroImage = document.getElementById("hero-slider");
+  const heroImage = document.getElementById("hero-slider") as HTMLImageElement;
+        // heroImage.classList.add("fade");
 
   setInterval(() => {
     index = (index + 1) % images.length;
 
-    heroImage.classList.remove("fade");
+    heroImage?.classList.remove("fade");
 
-    setTimeout(() => {
-      heroImage.src = images[index];
-      heroImage.classList.add("fade");
+    const timeout = setTimeout(() => {
+      if (heroImage) {
+        heroImage.src = images[index];
+        heroImage.classList.add("fade");
+      }
+      clearTimeout(timeout)
     }, 200);
 
   }, 5000); // cambia cada 5 segundos
