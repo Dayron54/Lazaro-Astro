@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Genera from "../components/Modules/Genera.astro";
 ---
 
 <Layout title="Modulos">
@@ -22,9 +23,13 @@ import Layout from "../layouts/Layout.astro";
           </p>
 
           <div class="hero-buttons">
-            <a href="#modulos" class="btn btn-primary"> Explorar módulos </a>
-
-            <a href="#" class="btn btn-secondary"> Solicitar demo </a>
+            <a
+              href="https://wa.me/573173718032?text=Buen%20día.%0A%0AMi%20nombre%20es%3A%0A%0AY%20requiero%20asesoría%20de%20ventas."
+              class="btn btn-primary"
+              target="_blank"
+            >
+              Solicitar asesoria
+            </a>
           </div>
         </div>
 
@@ -36,29 +41,38 @@ import Layout from "../layouts/Layout.astro";
         </div>
       </div>
 
-      <!-- TABS -->
-      <div class="tabs">
-        <div class="tabs-wrapper">
-          <a class="tab active" href="#">UNICONET ERP</a>
-          <a class="tab" href="#">GENERA</a>
-          <a class="tab" href="#">App Táctil</a>
-          <a class="tab" href="#">POS Cloud</a>
-          <a class="tab" href="#">BI Analytics</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- TABS -->
+  <div class="tabs">
+    <div class="tabs-wrapper">
+      <button class="tab active" data-tab="uniconet">
+        UNICONET
+      </button>
 
+      <button class="tab" data-tab="genera">
+        GENERA
+      </button>
+
+      <button class="tab">
+        WEMEIK
+      </button>
+
+      <button class="tab">
+        DESARROLLO WEB A TU MEDIDA
+      </button>
+    </div>
+  </div> 
   <!-- PRODUCTS -->
-  <section class="products" id="modulos">
+  <section
+    class="products tab-content" id="uniconet-content" >
     <div class="container">
-      <div class="section-label">PRODUCTOS</div>
+      <div class="section-label">UNICONET</div>
 
       <h2 class="section-title">Todo lo que tu empresa necesita</h2>
 
       <p class="section-description">
-        Centraliza la operación de tu negocio con herramientas modernas,
-        escalables y diseñadas para mejorar la productividad de cada área.
+        Software de ventas con facturación electrónica y modulos de inventrios
+        <br />
+        contablidad, hoteleria. Adactativo para todo tipo de empresa.
       </p>
 
       <div class="cards-grid">
@@ -68,17 +82,20 @@ import Layout from "../layouts/Layout.astro";
 
           <div class="icon-box">🛒</div>
 
-          <h3>Sistema POS Avanzado</h3>
+          <h3>Sistema de ventas POS</h3>
 
           <p>
-            Gestión de ventas en tiempo real, múltiples cajas, control de
-            inventario y facturación electrónica integrada.
+            solución tecnológica, combinando software y hardware, diseñada para
+            gestionar transacciones comerciales. <br />
+            Modulo facturacion tactil para restaurantes <br />
+            Modulo facturacion ventas para droguerias, ferreterias, almacenes,
+            etc
           </p>
 
-          <a href="#" class="card-link"> Conocer más → </a>
+          <!-- <a href="#" class="card-link"> Conocer más → </a> -->
         </article>
 
-        <!-- CARD -->
+        <!-- CARD Ventas-->
         <article class="card">
           <div class="icon-box">📦</div>
 
@@ -89,24 +106,24 @@ import Layout from "../layouts/Layout.astro";
             multi-bodega.
           </p>
 
-          <a href="#" class="card-link"> Ver detalles → </a>
+          <!-- <a href="#" class="card-link"> Ver detalles → </a> -->
         </article>
 
-        <!-- CARD -->
+        <!-- CARD Facturacion Electronica-->
         <article class="card">
           <div class="icon-box">🧾</div>
 
           <h3>Facturación Electrónica</h3>
 
           <p>
-            Emisión automática de documentos electrónicos compatibles con la
-            DIAN.
+            Integracion de emisión directa de documentos electrónicos
+            compatibles con la DIAN.
           </p>
 
-          <a href="#" class="card-link"> Ver detalles → </a>
+          <!-- <a href="#" class="card-link"> Ver detalles → </a> -->
         </article>
 
-        <!-- CARD -->
+        <!-- CARD Contabilidad-->
         <article class="card">
           <div class="icon-box">🏦</div>
 
@@ -117,24 +134,34 @@ import Layout from "../layouts/Layout.astro";
             automatizado.
           </p>
 
-          <a href="#" class="card-link"> Ver detalles → </a>
+          <!-- <a href="#" class="card-link"> Ver detalles → </a> -->
         </article>
 
-        <!-- CARD -->
+        <!-- CARD Horeca3-->
         <article class="card dark">
           <div class="icon-box">🍽️</div>
 
           <h3>Solución Horeca</h3>
 
           <p>
-            Especializada para restaurantes, hoteles y negocios gastronómicos.
+            herramienta digital integral diseñada para gestionar de forma
+            eficiente hoteles, restaurantes, cafeterías y catering
           </p>
 
-          <a href="#" class="card-link"> Explorar → </a>
+          <!-- <a href="#" class="card-link"> Explorar → </a> -->
         </article>
       </div>
     </div>
   </section>
+
+  <!-- CONTENIDO GENERA -->
+<section
+  id="genera-content"
+  class="tab-content"
+  style="display: none;"
+>
+  <Genera />
+</section>
 
   <!-- CTA -->
   <section class="cta-section">
@@ -148,8 +175,12 @@ import Layout from "../layouts/Layout.astro";
         </p>
 
         <div class="cta-buttons">
-          <a href="#" class="btn btn-light"> Solicitar precio </a>
-
+          <a
+            href="https://wa.me/573173718032?text=Buen%20día.%0A%0AMi%20nombre%20es%3A%0A%0AY%20requiero%20asesoría%20de%20ventas."
+            class="btn btn-light" target="_blank"
+          >
+            Solicitar precio
+          </a>
         </div>
       </div>
     </div>
@@ -298,6 +329,11 @@ import Layout from "../layouts/Layout.astro";
       font-weight: 500;
       position: relative;
       white-space: nowrap;
+
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
     }
 
     .tab.active {
@@ -517,5 +553,38 @@ import Layout from "../layouts/Layout.astro";
         grid-template-columns: 1fr;
       }
     }
-  </style>
+
+
+    </style>
+    <script>
+  const tabs = document.querySelectorAll(".tab[data-tab]");
+
+  const uniconetContent = document.getElementById("uniconet-content");
+  const generaContent = document.getElementById("genera-content");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      // quitar active
+      tabs.forEach((t) => t.classList.remove("active"));
+
+      // activar actual
+      tab.classList.add("active");
+
+      // ocultar todo
+      uniconetContent.style.display = "none";
+      generaContent.style.display = "none";
+
+      // mostrar correspondiente
+      const target = tab.dataset.tab;
+
+      if (target === "uniconet") {
+        uniconetContent.style.display = "block";
+      }
+
+      if (target === "genera") {
+        generaContent.style.display = "block";
+      }
+    });
+  });
+</script>
 </Layout>
