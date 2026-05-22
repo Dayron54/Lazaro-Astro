@@ -1,0 +1,231 @@
+<section class="products">
+  <div class="container">
+    <div class="section-label">DESARROLLO A MEDIDA</div>
+
+    <h2 class="section-title">Software diseñado para tus necesidades</h2>
+
+    <p class="section-description">
+      Si tu empresa tiene procesos únicos que no se adaptan a un software
+      estándar, creamos la herramienta perfecta para ti desde cero.
+    </p>
+
+    <div class="cards-grid">
+      <!-- CARD -->
+      <article class="card large">
+        <div class="tag">Exclusivo</div>
+
+        <div class="icon-box">💻</div>
+
+        <h3>Aplicaciones Web Personalizadas</h3>
+
+        <p>
+          Desarrollamos plataformas robustas y escalables utilizando las últimas
+          tecnologías. Desde sistemas de gestión interna hasta portales de
+          clientes complejos.
+        </p>
+      </article>
+
+      <!-- CARD -->
+      <article class="card">
+        <div class="icon-box">🔗</div>
+
+        <h3>Integraciones API</h3>
+
+        <p>
+          Conectamos tu sistema de UNICONET actual con herramientas web extras
+          que tengas en mente.
+        </p>
+      </article>
+
+      <!-- CARD -->
+      <article class="card">
+        <div class="icon-box">⚙️</div>
+
+        <h3>Optimización de Procesos</h3>
+
+        <p>
+          Analizamos tus flujos de trabajo manuales y los transformamos en
+          procesos digitales eficientes que ahorran tiempo y dinero.
+        </p>
+      </article>
+
+      <!-- CARD -->
+      <article class="card">
+        <div class="icon-box">🛠️</div>
+
+        <h3>Mantenimiento y Soporte</h3>
+
+        <p>
+          No solo construimos, también acompañamos. Ofrecemos soporte técnico
+          continuo y actualizaciones para que tu software nunca se quede atrás.
+        </p>
+      </article>
+
+      <!-- CARD -->
+      <article class="card dark">
+        <div class="icon-box">🏢</div>
+
+        <h3>Transformación Digital</h3>
+
+        <p>
+          Llevamos tu empresa al siguiente nivel tecnológico con soluciones que
+          crecen contigo.
+        </p>
+
+        <a
+          href="https://wa.me/573173718032?text=Hola,%20estoy%20interesado%20en%20un%20desarrollo%20web%20a%20medida"
+          target="_blank"
+          class="card-link"
+        >
+          Iniciar proyecto →
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .products {
+    padding: 5rem 0;
+  }
+  .container {
+    width: min(1200px, 92%);
+    margin: auto;
+  }
+  .products .section-label {
+    margin-bottom: 0.5rem;
+  }
+
+  .products .section-title {
+    margin-top: 0;
+  }
+
+  .section-label {
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-description {
+    color: var(--muted);
+    max-width: 750px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .card {
+    background: white;
+    border-radius: 28px;
+    padding: 2rem;
+    border: 1px solid #edf1f5;
+    transition: 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  }
+
+  .card.large {
+    grid-column: span 2;
+    min-height: 300px;
+  }
+
+  .card.dark {
+    background: #073b7a;
+    color: white;
+  }
+
+  .card.dark p {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .icon-box {
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    background: #eff6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  .card.dark .icon-box {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card p {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .card-link {
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  .card.dark .card-link {
+    color: white;
+  }
+
+  .tag {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: #dbeafe;
+    color: var(--primary);
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  /* RESPONSIVE */
+
+  @media (max-width: 1024px) {
+    .cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card.large {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .cards-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .card.large {
+      grid-column: span 1;
+    }
+  }
+</style>

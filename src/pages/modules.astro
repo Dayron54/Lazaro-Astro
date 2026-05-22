@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Genera from "../components/Modules/Genera.astro";
+import Wemeik from "../components/Modules/Wemeik.astro";
+import DesarrolloWeb from "../components/Modules/DesarrolloWeb.astro";
 ---
 
 <Layout title="Modulos">
@@ -35,6 +37,7 @@ import Genera from "../components/Modules/Genera.astro";
 
         <div class="hero-image">
           <img
+            id="dynamic-hero-img"
             src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1400&auto=format&fit=crop"
             alt="Dashboard empresarial"
           />
@@ -52,11 +55,11 @@ import Genera from "../components/Modules/Genera.astro";
         GENERA
       </button>
 
-      <button class="tab">
+      <button class="tab" data-tab="wemeik">
         WEMEIK
       </button>
 
-      <button class="tab">
+      <button class="tab" data-tab="desarrollo">
         DESARROLLO WEB A TU MEDIDA
       </button>
     </div>
@@ -161,6 +164,24 @@ import Genera from "../components/Modules/Genera.astro";
   style="display: none;"
 >
   <Genera />
+</section>
+
+  <!-- CONTENIDO WEMEIK -->
+<section
+  id="wemeik-content"
+  class="tab-content"
+  style="display: none;"
+>
+  <Wemeik />
+</section>
+
+  <!-- CONTENIDO DESARROLLO -->
+<section
+  id="desarrollo-content"
+  class="tab-content"
+  style="display: none;"
+>
+  <DesarrolloWeb />
 </section>
 
   <!-- CTA -->
@@ -304,10 +325,13 @@ import Genera from "../components/Modules/Genera.astro";
     }
 
     .hero-image img {
-      width: 100%;
+      width: 90%;
+      display: block;
+      margin: 0 auto;
       border-radius: 28px;
-      object-fit: cover;
+      object-fit: contain;
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      transition: opacity 0.8s ease-in-out;
     }
 
     /* TABS */
@@ -561,6 +585,8 @@ import Genera from "../components/Modules/Genera.astro";
 
   const uniconetContent = document.getElementById("uniconet-content");
   const generaContent = document.getElementById("genera-content");
+  const wemeikContent = document.getElementById("wemeik-content");
+  const desarrolloContent = document.getElementById("desarrollo-content");
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
@@ -573,6 +599,8 @@ import Genera from "../components/Modules/Genera.astro";
       // ocultar todo
       uniconetContent.style.display = "none";
       generaContent.style.display = "none";
+      wemeikContent.style.display = "none";
+      desarrolloContent.style.display = "none";
 
       // mostrar correspondiente
       const target = tab.dataset.tab;
@@ -584,7 +612,45 @@ import Genera from "../components/Modules/Genera.astro";
       if (target === "genera") {
         generaContent.style.display = "block";
       }
+
+      if (target === "wemeik") {
+        wemeikContent.style.display = "block";
+      }
+
+      if (target === "desarrollo") {
+        desarrolloContent.style.display = "block";
+      }
     });
   });
+
+  // Lógica para cambio de imagen dinámico
+  const dynamicImg = document.getElementById("dynamic-hero-img");
+  
+  // Puedes agregar o quitar rutas de imágenes aquí
+  const heroImages = [
+    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1400&auto=format&fit=crop",
+    "/img/modules/slide1.jpg",
+    "/img/modules/slide2.jpg",
+    "/img/modules/slide3.jpg"
+  ];
+  
+  let currentImgIndex = 0;
+
+  function rotateImage() {
+    currentImgIndex = (currentImgIndex + 1) % heroImages.length;
+    
+    // Efecto de desvanecimiento
+    dynamicImg.style.opacity = "0";
+    
+    setTimeout(() => {
+      dynamicImg.src = heroImages[currentImgIndex];
+      dynamicImg.style.opacity = "1";
+    }, 800); // Debe coincidir con el tiempo de la transición CSS
+  }
+
+  // Cambiar imagen cada 5 segundos
+  if (heroImages.length > 1) {
+    setInterval(rotateImage, 5000);
+  }
 </script>
 </Layout>
