@@ -22,49 +22,55 @@
       <div class="hero-buttons">
         <a
           href="https://wa.me/573173718032?text=Buen%20d%C3%ADa.%0A%0AMi%20nombre%20es%3A%0A%0AY%20requiero%20asesor%C3%ADa%20de%20ventas."
-          class="btn-primary" target="_blank">¡Cotiza ahora!</a
+          class="btn-primary"
+          target="_blank">¡Cotiza ahora!</a
         >
-        <a href="#" target="_blank" class="btn-secondary" > ▶ Ver Demo </a>
+        <a href="#" target="_blank" class="btn-secondary"> ▶ Ver Demo </a>
       </div>
     </div>
 
     <!-- DERECHA -->
     <div class="hero-image">
-  <div class="image-card">
-    <img class="fade" id="hero-slider" src="/img-content1.jpg" alt="Sistema Lázaro" />
-  </div>
-</div>
+      <div class="image-card">
+        <img
+          class="fade"
+          id="hero-slider"
+          src="/img-content1.jpg"
+          alt="Sistema Lázaro"
+        />
+      </div>
+    </div>
   </div>
 </section>
 
 <script>
-if (typeof window !== "undefined") {
+  if (typeof window !== "undefined") {
+    const images = [
+      "/img-content1.jpg",
+      "/img-content2.jpg",
+      "/img-content3.jpg",
+    ];
 
-  const images = [
-    "/img-content1.jpg",
-    "/img-content2.jpg",
-    "/img-content3.jpg"
-  ];
+    let index = 0;
+    const heroImage = document.getElementById(
+      "hero-slider",
+    ) as HTMLImageElement;
+    // heroImage.classList.add("fade");
 
-  let index = 0;
-  const heroImage = document.getElementById("hero-slider") as HTMLImageElement;
-        // heroImage.classList.add("fade");
+    setInterval(() => {
+      index = (index + 1) % images.length;
 
-  setInterval(() => {
-    index = (index + 1) % images.length;
+      heroImage?.classList.remove("fade");
 
-    heroImage?.classList.remove("fade");
-
-    const timeout = setTimeout(() => {
-      if (heroImage) {
-        heroImage.src = images[index];
-        heroImage.classList.add("fade");
-      }
-      clearTimeout(timeout)
-    }, 200);
-
-  }, 5000); // cambia cada 5 segundos
-}
+      const timeout = setTimeout(() => {
+        if (heroImage) {
+          heroImage.src = images[index];
+          heroImage.classList.add("fade");
+        }
+        clearTimeout(timeout);
+      }, 200);
+    }, 5000); // cambia cada 5 segundos
+  }
 </script>
 
 <style>
@@ -167,38 +173,46 @@ if (typeof window !== "undefined") {
 
   /* ===== IMAGEN ===== */
 
-.hero-image {
-  display: flex;
-  justify-content: center;
-}
+  .hero-image {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.image-card {
-  padding: 1rem;
-  border-radius: 30px;
-  border: 3px solid #0b6ea8;
-  background: rgba(255,255,255,0.4);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-   transition: transform 0.4s ease;
-}
+  .hero-image img {
+    width: auto;
+    max-width: 100%;
+    max-height: 80vh;
 
+    display: block;
+    margin: 0 auto;
 
-.image-card:hover {
-  transform: translateY(-6px);
-}
+    border-radius: 28px;
+    object-fit: contain;
 
-.image-card img {
-  width: 100%;
-  max-width: 420px;
-  border-radius: 18px;
-  object-fit: cover;
-  opacity: 1;
-  transition: opacity 0.6s ease;
-}
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    transition: opacity 0.8s ease-in-out;
+  }
 
-.image-card img:not(.fade) {
-  opacity: 0.2;
-}
+  .image-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .image-card img {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 18px;
+    object-fit: cover;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+  }
+
+  .image-card img:not(.fade) {
+    opacity: 0.2;
+  }
 
   /* ===== RESPONSIVE ===== */
 
