@@ -1,15 +1,16 @@
 ---
+
 ---
+
 <footer class="footer">
   <div class="footer-container">
-
     <!-- Logo y descripción -->
     <div class="footer-col footer-brand">
       <img src="/logo-lazaro.png" alt="Lazaro Software" class="footer-logo" />
 
       <p>
-        Transformando la gestión empresarial a través de tecnología
-        innovadora y soporte excepcional.
+        Transformando la gestión empresarial a través de tecnología innovadora y
+        soporte excepcional.
       </p>
     </div>
 
@@ -20,7 +21,7 @@
         <li><a href="/">Inicio</a></li>
         <li><a href="/modules">Módulos</a></li>
         <li><a href="#clientes">Clientes</a></li>
-        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="/us">Nosotros</a></li>
       </ul>
     </div>
 
@@ -30,10 +31,16 @@
       <ul>
         <li><a href="/privacy">Políticas de privacidad</a></li>
         <div class="footer-redes">
-          <a href="https://www.facebook.com/p/Lazaro-Software-100063740972972/?locale=es_LA" target="_blank">
+          <a
+            href="https://www.facebook.com/p/Lazaro-Software-100063740972972/?locale=es_LA"
+            target="_blank"
+          >
             <img src="/logo-facebook.png" alt="Facebook" />
           </a>
-          <a href="https://www.instagram.com/lazarosoftware_/?hl=es" target="_blank">
+          <a
+            href="https://www.instagram.com/lazarosoftware_/?hl=es"
+            target="_blank"
+          >
             <img src="/logo-instagram.png" alt="Instagram" />
           </a>
         </div>
@@ -45,7 +52,7 @@
     <div class="footer-col contacto">
       <h4>Contacto</h4>
 
-      <a 
+      <a
         href="https://wa.me/573168204407?text=Buen%20día%2C%20necesito%20soporte%20técnico.%0AMi%20nombre%20es%3A%0ADe%20la%20empresa%3A%0ADe%20la%20ciudad%3A%0A%0ALa%20falla%20es%3A"
         target="_blank"
         rel="noopener"
@@ -54,7 +61,7 @@
         📲 3168204407 - Área Técnica
       </a>
 
-      <a 
+      <a
         href="https://wa.me/573163977448?text=Buen%20día%2C%20necesito%20soporte.%0A%0AMi%20nombre%20es%3A%0ADe%20la%20empresa%3A%0ADe%20la%20ciudad%3A%0ALa%20falla%20o%20el%20requerimiento%20es%3A"
         target="_blank"
         rel="noopener"
@@ -63,7 +70,7 @@
         📲 3163977448 - Área de Soporte
       </a>
 
-      <a 
+      <a
         href="https://wa.me/573173718032?text=Buen%20día.%0A%0AMi%20nombre%20es%3A%0A%0AY%20requiero%20asesoría%20de%20ventas."
         target="_blank"
         rel="noopener"
@@ -71,18 +78,20 @@
       >
         📲 3173718032 - Área de Ventas
       </a>
-      <a 
+      <a
         href="https://www.google.com/maps/place/Lazaro+Software/data=!4m2!3m1!1s0x0:0x83a582468b9884a7?sa=X&ved=1t:2428&ictx=111"
         target="_blank"
         rel="noopener"
         class="btn-whatsapp"
       >
-      <img src="/icons/icon_ubicacion.png" alt="icon ubicacion" style="padding-left: 5px;">
+        <img
+          src="/icons/icon_ubicacion.png"
+          alt="icon ubicacion"
+          style="padding-left: 5px;"
+        />
         Cra. 4D No. 38-65 Barrio Magisterio
       </a>
-
     </div>
-
   </div>
 
   <div class="footer-bottom">
@@ -90,137 +99,128 @@
   </div>
 </footer>
 
-
 <style>
+  .footer {
+    background: #081a35;
+    color: white;
+    padding: 70px 40px 30px;
+  }
 
-.footer{
-  background:#081a35;
-  color:white;
-  padding:70px 40px 30px;
-}
+  .footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    gap: 50px;
+  }
 
-.footer-container{
-  max-width:1200px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr 2fr;
-  gap:50px;
-}
+  /* Logo */
+  .footer-logo {
+    width: 140px;
+    margin-bottom: 20px;
+  }
 
-/* Logo */
-.footer-logo{
-  width:140px;
-  margin-bottom:20px;
-}
+  .footer-brand p {
+    color: #a7b3c7;
+    line-height: 1.6;
+    max-width: 280px;
+  }
 
-.footer-brand p{
-  color:#a7b3c7;
-  line-height:1.6;
-  max-width:280px;
-}
+  /* Títulos */
+  .footer-col h4 {
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
 
-/* Títulos */
-.footer-col h4{
-  margin-bottom:20px;
-  font-size:18px;
-}
+  /* Links */
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
+  }
 
+  .footer-col ul li {
+    margin-bottom: 10px;
+  }
 
-/* Links */
-.footer-col ul{
-  list-style:none;
-  padding:0;
-}
+  .footer-col ul a {
+    text-decoration: none;
+    color: #a7b3c7;
+    transition: 0.3s;
+  }
 
+  .footer-col ul a:hover {
+    color: #4cc9f0;
+  }
 
-.footer-col ul li{
-  margin-bottom:10px;
-}
+  /* iconos redes */
 
-.footer-col ul a{
-  text-decoration:none;
-  color:#a7b3c7;
-  transition:0.3s;
-}
+  .footer-redes img {
+    height: 30px;
+    padding: 3px;
+    width: auto;
+    transition: transform 0.2s;
+  }
 
-.footer-col ul a:hover{
-  color:#4cc9f0;
-}
+  .footer-redes img:hover {
+    transform: scale(1.1);
+  }
 
-/* iconos redes */
+  /* WhatsApp botones */
 
-.footer-redes img{
-  height: 30px;
-  padding: 3px;
-  width: auto;
-  transition: transform 0.2s;
-}
+  .contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 
-.footer-redes img:hover{
-  transform: scale(1.1);
-}
+  .btn-whatsapp {
+    /* background:#0f274b; */
+    /* padding:12px 15px; */
+    /* border-radius:10px; */
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+    /* border:1px solid rgba(255,255,255,0.05); */
+  }
 
-/* WhatsApp botones */
+  .btn-whatsapp:hover {
+    /* background:#0ea5e9; */
+    transform: translateY(-2px);
+  }
 
-.contacto{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
+  /* Footer bottom */
 
-.btn-whatsapp{
-  /* background:#0f274b; */
-  /* padding:12px 15px; */
-  /* border-radius:10px; */
-  text-decoration:none;
-  color:white;
-  font-size:14px;
-  transition:0.3s;
-  /* border:1px solid rgba(255,255,255,0.05); */
-}
+  .footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #8fa1b9;
+    font-size: 14px;
+  }
 
-.btn-whatsapp:hover{
-  /* background:#0ea5e9; */
-  transform:translateY(-2px);
-}
+  /* Responsive */
 
-/* Footer bottom */
+  @media (max-width: 900px) {
+    .footer-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+  }
 
-.footer-bottom{
-  text-align:center;
-  margin-top:50px;
-  padding-top:20px;
-  border-top:1px solid rgba(255,255,255,0.1);
-  color:#8fa1b9;
-  font-size:14px;
-}
+  @media (max-width: 600px) {
+    .footer-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
 
-/* Responsive */
+    .footer-brand p {
+      margin: auto;
+    }
 
-@media (max-width:900px){
-
-.footer-container{
-grid-template-columns:1fr 1fr;
-gap:40px;
-}
-
-}
-
-@media (max-width:600px){
-
-.footer-container{
-grid-template-columns:1fr;
-text-align:center;
-}
-
-.footer-brand p{
-margin:auto;
-}
-
-.contacto{
-align-items:center;
-}
-
-}
-
+    .contacto {
+      align-items: center;
+    }
+  }
 </style>

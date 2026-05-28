@@ -11,7 +11,7 @@
     <a href="/">Inicio</a>
     <a href="/modules">Módulos</a>
     <a href="#">Clientes</a>
-    <a href="#">Nosotros</a>
+    <a href="/us">Nosotros</a>
   </div>
 
   <!-- DERECHA (acciones escritorio) -->
@@ -34,233 +34,226 @@
     <a href="/">Inicio</a>
     <a href="/modules">Módulos</a>
     <a href="#">Clientes</a>
-    <a href="#">Nosotros</a>
+    <a href="/us">Nosotros</a>
     <a href="#">Contacto</a>
 
     <div class="nav-mobile-actions">
       <a class="wompi-btn" href="https://checkout.wompi.co/" target="_blank">
         Paga con Wompi
       </a>
-      
     </div>
   </div>
 </nav>
 
 <script is:inline>
-  const toggle = document.querySelector('.nav-toggle');
-  const mobileMenu = document.querySelector('.nav-mobile');
+  const toggle = document.querySelector(".nav-toggle");
+  const mobileMenu = document.querySelector(".nav-mobile");
 
-  toggle.addEventListener('click', () => {
-    toggle.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
+  toggle.addEventListener("click", () => {
+    toggle.classList.toggle("active");
+    mobileMenu.classList.toggle("active");
   });
 </script>
 
 <style>
   /* ===== NAV BASE ===== */
-.navbar {
-  position: relative;
-  z-index: 10000;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  height: 80px;
-  padding: 0 3rem;
-  background: #f2f2f2; /* gris claro como en la imagen */
-  top: 0;
-  position: sticky;
-}
-
-.nav-left img {
-  height: 40px;
-  padding-left: 80%;
-}
-
-/* LINKS ESCRITORIO */
-.nav-center {
-  display: flex;
-  justify-content: right;
-  padding-right: 3%;
-  gap: 2rem;
-}
-
-.nav-center a {
-  color: #222;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
-  transition: color 0.2s ease;
-}
-
-.nav-center a:hover {
-  color: #0b4a8f;
-}
-
-/* DERECHA ESCRITORIO */
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-right: 140px;
-}
-
-.nav-right img {
-  height: 22px;
-}
-
-/* ===== BOTÓN WOMPI ===== */
-.wompi-btn {
-  background: #0b4a8f;
-  color: #fff;
-  padding: 0.7rem 1.6rem;
-  border-radius: 30px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: all 0.3s ease;
-  box-shadow: none;
-}
-
-.wompi-btn:hover {
-  background: #083b72;
-  transform: translateY(-1px);
-}
-
-
-/* BOTÓN HAMBURGUESA */
-.nav-toggle {
-  display: none;
-  width: 30px;
-  height: 22px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  flex-direction: column;
-  justify-content: space-between;
-  
-}
-
-.nav-toggle span {
-  height: 3px;
-  background: black;
-  border-radius: 3px;
-  transition: 0.4s;
-}
-
-/* ===== MENÚ MÓVIL ===== */
-.nav-mobile {
-  display: none;
-}
-
-/* 📱 MÓVIL */
-@media (max-width: 768px) {
-  .nav-center,
-  .nav-right {
-    display: none;
+  .navbar {
+    position: relative;
+    z-index: 10000;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    height: 80px;
+    padding: 0 3rem;
+    background: #f2f2f2; /* gris claro como en la imagen */
+    top: 0;
+    position: sticky;
   }
 
   .nav-left img {
-  height: 40px;
-  padding-top: 5px;
-  padding-left: 5%;
-}
- .nav-toggle {
-  display: flex;
-  justify-self: end;
-  grid-column: 2;   /*  fuerza la columna derecha */
-  z-index: 10001;   /* asegura visibilidad */
-}
+    height: 40px;
+    padding-left: 80%;
+  }
 
-
-.nav-mobile {
-  position: absolute;
-  top: 80px;        /* justo debajo del navbar */
-  left: 0;
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.4rem;
-
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
-
-  background: #081a35;
-  backdrop-filter: blur(8px);
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-
-  transition: max-height 0.4s ease, opacity 0.3s ease;
-}
-
-
-
-.nav-mobile.active {
-  max-height: 500px;
-  padding: 2rem 0 2.5rem 0;
-  opacity: 1;
-  pointer-events: auto;
-}
-
-
- .nav-mobile a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 500;
-  padding: 0.4rem 0;
-  transition: all 0.25s ease;
-}
-
-.nav-mobile a:hover {
-  transform: translateY(-2px);
-  opacity: 0.85;
-}
-
-.nav-mobile .wompi-btn {
-  margin-top: 1rem;
-  background: linear-gradient(135deg, #0b4a8f, #0b6ea8);
-  padding: 0.8rem 1.8rem;
-  border-radius: 40px;
-  font-size: 1rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-}
-
-  /* Acciones móviles */
-  .nav-mobile-actions {
-    margin-top: 1rem;
+  /* LINKS ESCRITORIO */
+  .nav-center {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    justify-content: right;
+    padding-right: 3%;
+    gap: 2rem;
+  }
+
+  .nav-center a {
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+  }
+
+  .nav-center a:hover {
+    color: #0b4a8f;
+  }
+
+  /* DERECHA ESCRITORIO */
+  .nav-right {
+    display: flex;
     align-items: center;
-  }
-
-  .nav-mobile-social {
-    display: flex;
     gap: 1rem;
+    margin-right: 140px;
   }
 
-  .nav-mobile-social img {
+  .nav-right img {
     height: 22px;
   }
 
-  /* ❌ animación botón */
-  .nav-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
+  /* ===== BOTÓN WOMPI ===== */
+  .wompi-btn {
+    background: #0b4a8f;
+    color: #fff;
+    padding: 0.7rem 1.6rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    box-shadow: none;
   }
 
-  .nav-toggle.active span:nth-child(2) {
-    opacity: 0;
+  .wompi-btn:hover {
+    background: #083b72;
+    transform: translateY(-1px);
   }
 
-  .nav-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
+  /* BOTÓN HAMBURGUESA */
+  .nav-toggle {
+    display: none;
+    width: 30px;
+    height: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
   }
-}
 
+  .nav-toggle span {
+    height: 3px;
+    background: black;
+    border-radius: 3px;
+    transition: 0.4s;
+  }
+
+  /* ===== MENÚ MÓVIL ===== */
+  .nav-mobile {
+    display: none;
+  }
+
+  /* 📱 MÓVIL */
+  @media (max-width: 768px) {
+    .nav-center,
+    .nav-right {
+      display: none;
+    }
+
+    .nav-left img {
+      height: 40px;
+      padding-top: 5px;
+      padding-left: 5%;
+    }
+    .nav-toggle {
+      display: flex;
+      justify-self: end;
+      grid-column: 2; /*  fuerza la columna derecha */
+      z-index: 10001; /* asegura visibilidad */
+    }
+
+    .nav-mobile {
+      position: absolute;
+      top: 80px; /* justo debajo del navbar */
+      left: 0;
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.4rem;
+
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+
+      background: #081a35;
+      backdrop-filter: blur(8px);
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+
+      transition:
+        max-height 0.4s ease,
+        opacity 0.3s ease;
+    }
+
+    .nav-mobile.active {
+      max-height: 500px;
+      padding: 2rem 0 2.5rem 0;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .nav-mobile a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: 0.4rem 0;
+      transition: all 0.25s ease;
+    }
+
+    .nav-mobile a:hover {
+      transform: translateY(-2px);
+      opacity: 0.85;
+    }
+
+    .nav-mobile .wompi-btn {
+      margin-top: 1rem;
+      background: linear-gradient(135deg, #0b4a8f, #0b6ea8);
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      font-size: 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Acciones móviles */
+    .nav-mobile-actions {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .nav-mobile-social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-mobile-social img {
+      height: 22px;
+    }
+
+    /* ❌ animación botón */
+    .nav-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+  }
 </style>
-
