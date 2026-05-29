@@ -30,14 +30,18 @@ import Layout from "../layouts/Layout.astro";
       <!-- IMAGEN HERO -->
 
       <div class="hero-image-container">
+        <!-- IMG DINAMICA -->
         <img
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd3cdVzobiEUW1EB5qckv76AG1td9oBsGdUsgwjy3yEsrvrs9ct9JD6sLyk3f8BrIz0c5-6SciNkbP297hLMpv1kpCtf0R7DRS6e4RQurNgDb1IVRSOMph2h4oRGanZuHdX0WiCyiQFlpXQmHEtQqLtw_7ZnMv6-sex_FdIGBauGvNlDslUfuCy223ktIW-za64chVoS_awF2o5xCSoqnFv9OUtRs0gswlWwCGaeqESykcE7x6VXJEJRvW8wQ3kpQeS0MOy43OAw"
+          id="heroImage"
+          src="/img/customers/DonPedro.jpg"
           alt="Empresas clientes"
           class="hero-image"
         />
 
-        <!-- CARD FLOTANTE -->
+        <!-- OVERLAY -->
+        <div class="hero-overlay"></div>
 
+        <!-- CARD FLOTANTE -->
         <div class="floating-card">
           <div class="floating-icon">
             <span class="material-symbols-outlined">
@@ -49,7 +53,7 @@ import Layout from "../layouts/Layout.astro";
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M7.6 21L5.7 17.8L2.1 17L2.45 13.3L0 10.5L2.45 7.7L2.1 4L5.7 3.2L7.6 0L11 1.45L14.4 0L16.3 3.2L19.9 4L19.55 7.7L22 10.5L19.55 13.3L19.9 17L16.3 17.8L14.4 21L11 19.55L7.6 21V21M8.45 18.45L11 17.35L13.6 18.45L15 16.05L17.75 15.4L17.5 12.6L19.35 10.5L17.5 8.35L17.75 5.55L15 4.95L13.55 2.55L11 3.65L8.4 2.55L7 4.95L4.25 5.55L4.5 8.35L2.65 10.5L4.5 12.6L4.25 15.45L7 16.05L8.45 18.45V18.45M11 10.5V10.5V10.5V10.5V10.5V10.5V10.5V10.5V10.5V10.5V10.5V10.5V10.5V10.5V10.5V10.5V10.5V10.5V10.5V10.5V10.5V10.5M9.95 14.05L15.6 8.4L14.2 6.95L9.95 11.2L7.8 9.1L6.4 10.5L9.95 14.05V14.05"
+                  d="M7.6 21L5.7 17.8L2.1 17L2.45 13.3L0 10.5L2.45 7.7L2.1 4L5.7 3.2L7.6 0L11 1.45L14.4 0L16.3 3.2L19.9 4L19.55 7.7L22 10.5L19.55 13.3L19.9 17L16.3 17.8L14.4 21L11 19.55L7.6 21V21"
                   fill="#004666"></path>
               </svg>
             </span>
@@ -57,7 +61,6 @@ import Layout from "../layouts/Layout.astro";
 
           <div>
             <h3>+5,000</h3>
-
             <p>Clientes Activos</p>
           </div>
         </div>
@@ -306,6 +309,43 @@ import Layout from "../layouts/Layout.astro";
   </main>
 </Layout>
 
+<script>
+  // ARRAY DE IMAGENES
+
+  const heroImages = [
+    "/img/customers/DonPedro.jpg",
+    "/img/customers/colfamil.jfif",
+    // "/img/customers/cliente3.jpg",
+    // "/img/customers/cliente4.jpg",
+  ];
+
+  // IMG PRINCIPAL
+
+  const heroImage = document.getElementById("heroImage");
+
+  let currentImage = 0;
+
+  // CAMBIO AUTOMATICO
+
+  setInterval(() => {
+    // EFECTO FADE OUT
+    heroImage.style.opacity = "0";
+
+    setTimeout(() => {
+      // CAMBIAR IMAGEN
+      currentImage++;
+
+      if (currentImage >= heroImages.length) {
+        currentImage = 0;
+      }
+
+      heroImage.src = heroImages[currentImage];
+
+      // FADE IN
+      heroImage.style.opacity = "1";
+    }, 500);
+  }, 4000);
+</script>
 <style>
   /* ====================================== */
   /* CONFIGURACIÓN GENERAL */
@@ -409,10 +449,16 @@ import Layout from "../layouts/Layout.astro";
 
   .hero-image {
     width: 100%;
+    height: 100%;
     border-radius: 45px;
     transform: rotate(3deg);
     transition: 0.6s ease;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+    object-fit: cover;
+
+    transition:
+    opacity 0.8s ease,
+    transform 6s ease;
   }
 
   .hero-image:hover {
