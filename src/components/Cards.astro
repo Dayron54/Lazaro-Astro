@@ -1,9 +1,17 @@
+---
+import ClockRotateIcon from "../components/icons/ClockRotateIcon.astro";
+import HourGlassIcon from "./icons/HourGlassIcon.astro";
+import CircleCheckIcon from "./icons/CircleCheckIcon.astro";
+import NewsPaperIcon from "./icons/NewsPaperIcon.astro";
+import PeopleGroupIcon from "./icons/PeopleGroupIcon.astro";
+---
+
 <section class="features">
   <div class="features-container">
 
     <div class="feature-card">
       <div class="icon-wrapper">
-        <img src="/icons/icon_reloj.png" alt="Siempre al día" />
+        <ClockRotateIcon />
       </div>
       <h3>Siempre al día</h3>
       <p>Actualizado con la DIAN y evita multas.</p>
@@ -11,7 +19,7 @@
 
     <div class="feature-card">
       <div class="icon-wrapper">
-        <img src="/icons/icon_tiempo.png" alt="Ahorra tiempo" />
+        <HourGlassIcon />
       </div>
       <h3>Ahorra tiempo</h3>
       <p>Simplifica tus labores contables diarias.</p>
@@ -19,7 +27,7 @@
 
     <div class="feature-card">
       <div class="icon-wrapper">
-        <img src="/icons/icon_check.png" alt="Sin errores" />
+        <CircleCheckIcon />
       </div>
       <h3>Sin errores</h3>
       <p>Automatiza tus tareas y reduce riesgos.</p>
@@ -27,7 +35,7 @@
 
     <div class="feature-card">
       <div class="icon-wrapper">
-        <img src="/icons/icon_tiket.png" alt="Saldos iniciales" />
+        <NewsPaperIcon />
       </div>
       <h3>Saldos iniciales</h3>
       <p>Registro de manera sencilla y rápida.</p>
@@ -35,7 +43,7 @@
 
     <div class="feature-card">
       <div class="icon-wrapper">
-        <img src="/icons/icon_clientes.png" alt="Gestiona clientes" />
+        <PeopleGroupIcon />
       </div>
       <h3>Gestiona clientes</h3>
       <p>Centraliza todo en una única plataforma.</p>
@@ -88,6 +96,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 1.2rem;
+  color: #006591;
 }
 
 .icon-wrapper img {
