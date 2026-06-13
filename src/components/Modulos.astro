@@ -1,47 +1,70 @@
 ---
 import BoxArchiveIcon from "./icons/BoxArchiveIcon.astro";
-
-const modulos = [
-  {
-    titulo: "Ventas e Inventarios",
-    descripcion: "Control total de stock y facturación.",
-    icono: "/icons/icon_inventarios.png",
-  },
-  {
-    titulo: "Contable y financiero",
-    descripcion: "Gestión de balances y reportes.",
-    icono: "/icons/icon_contable.png",
-  },
-  {
-    titulo: "Talento humano",
-    descripcion: "Nómina y gestión de personal.",
-    icono: "/icons/icon_nomina.png",
-  },
-  {
-    titulo: "Servicios adicionales",
-    descripcion: "Personalización a tu medida.",
-    icono: "/icons/icon_ajustes.png",
-  }
-];
+import GearIcon from "./icons/GearIcon.astro";
+import IdCardIcon from "./icons/IdCardIcon.astro";
+import WalletIcon from "./icons/WalletIcon.astro";
 ---
 
 <section class="modulos">
   <div class="container">
-    <h5 class="modulos__title" style="font-weight: 700;">Conoce nuestros módulos</h5>
+    <h5 class="modulos__title">Conoce nuestros módulos</h5>
 
     <div class="modulos__grid">
-      {modulos.map((modulo, index) => (
-        <div class="modulo">
-          <div class="modulo__card">
-            <div class={`modulo__icon ${index % 2 !== 0 ? "azul" : ""}`}>
-              <img src={modulo.icono} alt={modulo.titulo} />
-            </div>
-          </div>
+      <!-- VENTAS E INVENTARIOS -->
 
-          <h3>{modulo.titulo}</h3>
-          <p>{modulo.descripcion}</p>
+      <div class="modulo">
+        <div class="modulo__card">
+            <div class="modulo__icon">
+              <BoxArchiveIcon />
+            </div>
         </div>
-      ))}
+
+        <h3>Ventas e Inventarios</h3>
+
+        <p>Control total de stock y facturación.</p>
+      </div>
+
+      <!-- CONTABLE -->
+
+      <div class="modulo">
+        <div class="modulo__card">
+          <div class="modulo__icon">
+            <WalletIcon />
+          </div>
+        </div>
+
+        <h3>Contable y financiero</h3>
+
+        <p>Gestión de balances y reportes.</p>
+      </div>
+
+      <!-- TALENTO HUMANO -->
+
+      <div class="modulo">
+        <div class="modulo__card">
+          <div class="modulo__icon">
+             <IdCardIcon />
+          </div>
+        </div>
+
+        <h3>Talento humano</h3>
+
+        <p>Nómina y gestión de personal.</p>
+      </div>
+
+      <!-- SERVICIOS ADICIONALES -->
+
+      <div class="modulo">
+        <div class="modulo__card">
+          <div class="modulo__icon">
+            <GearIcon />
+          </div>
+        </div>
+
+        <h3>Servicios adicionales</h3>
+
+        <p>Personalización a tu medida.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -52,6 +75,14 @@ const modulos = [
     padding: 6rem 2rem;
     text-align: center;
   }
+  .modulo__icon  {
+    color: #006591;
+  }
+
+  .modulo__icon > :global(svg) {
+  width: 60px !important;
+  height: 60px !important;
+}
 
   .container {
     max-width: 1200px;
@@ -87,30 +118,32 @@ const modulos = [
     align-items: center;
     justify-content: center;
     margin-bottom: 0.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
   .modulo__card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
   }
 
-/* Bloque interno base (gris) */
+  /* Bloque interno base (gris) */
   .modulo__icon {
-  width: 130px;
-  height: 130px;
-  background: #d1d5db; /* gris suave */
-  border-radius: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s ease;
-}
+    background: #d1d5db; /* gris suave */
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+    width: 80px;
+    height: 80px;
+  }
 
-/* Solo posiciones 2 y 4 */
-.modulo__icon.azul {
-  background: #dbeafe; /* azul claro */
-}
+  /* Solo posiciones 2 y 4 */
+  .modulo__icon.azul {
+    background: #dbeafe; /* azul claro */
+  }
 
   /* Imagen PNG */
   .modulo__icon img {
